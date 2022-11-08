@@ -1,0 +1,16 @@
+.product-container {
+    border: 1px solid grey;
+}
+
+.product-container > div {
+    padding: 14px 12px;
+}
+
+img {
+    width: 100%;
+}
+
+.cart-price {
+    display: flex;
+    justify-content: space-between;
+}
