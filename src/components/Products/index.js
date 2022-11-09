@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Product from '../Product'
 import styles from './Products.module.css'
 
@@ -10,17 +9,9 @@ const products = [
 
 function Products() {
 
-  let [count, setCount] = useState(0)
-  const [cart, setCart] = useState([])
-
-  const cartHandler = (val) => {
-    setCart(cart => [...cart, val]);
-  }
-
-
   return (
     <div className={styles['products-container']} >
-      {products.map(product => <Product addToCart={val => cartHandler(val)} item={product} />)}
+      {products.map(product => <Product item={product} />)}
     </div>
   )
 }

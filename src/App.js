@@ -1,14 +1,17 @@
+// import { useContext } from 'react'
+import { CartDataContext, CartDataContextProvider } from './CartDataContext'
 import Products from './components/Products'
 import AppHeader from './components/AppHeader'
 
 function App() {
 
+  // useContext(CartDataContext)
 
   return (
-    <div>
+    <CartDataContextProvider>
       <AppHeader />
       <Products />
-    </div>
+    </CartDataContextProvider>
   )
 }
 
