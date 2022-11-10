@@ -1,15 +1,37 @@
 
 import { useContext } from 'react'
 import styles from './Product.module.css'
-import productImage from '../../img/product-img.jpg'
+import productImage from '../../assets/img/product-img.jpg'
 import { CartDataContext } from '../../CartDataContext'
 
-function Product({ item }) {
+const Product =({ item }) => {
 
   const { setCart } = useContext(CartDataContext)
 
-  const cartHandler = (val) => {
-    setCart(cart => [...cart, val]);
+  const cartHandler = (item) => {
+    setCart(cart => {
+      // debugger
+      let oldItemIndex = undefined
+      const oldItem = cart.find((itm, i) => {
+        oldItemIndex = i
+        return itm.id === item.id
+      })
+      if (oldItem) {
+        let cartCopy = [...cart]
+        console.log('first old item ', oldItem)
+        oldItem.qty += 1
+         console.log('second old item ', oldItem)
+
+        cartCopy[oldItemIndex] = oldItem
+        return cartCopy
+      } else {
+        item.qty = 1
+        return [...cart, item]
+      }
+
+    })
+
+    // setCart(cart => [...cart, item]);
   }
 
   return (
