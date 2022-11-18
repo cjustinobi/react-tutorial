@@ -1,9 +1,12 @@
-
+import { useDispatch } from 'react-redux'
+import { addItem } from '../../redux/cart'
 import styles from './Product.module.css'
-import productImage from '../../img/product-img.jpg'
+import productImage from '../../assets/img/product-img-1.jpg'
 
-function Product({ item, addToCart }) {
 
+function Product({ item }) {
+
+  const dispatch = useDispatch()
 
 
   return (
@@ -13,7 +16,7 @@ function Product({ item, addToCart }) {
         <p>{item.title}</p>
         <div className={styles['cart-price']}>
           <span>{item.price}</span>
-          <button onClick={() => addToCart(item)}>Add to cart</button>
+          <button onClick={() => dispatch(addItem(item))}>Add to cart</button>
         </div>
       </div>
     </div>
